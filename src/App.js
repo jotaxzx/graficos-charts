@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import {Doughnut, Pie } from 'react-chartjs-2';
 
 function App() {
+
+  //informacion
+  const data = {
+    labels:['Google', 'Bing', 'Yahoo', 'Otros'],
+    datasets:[{
+      //incluye el % de cada uno de nuestros paramentros
+      data: [74.56, 10.54, 9.42, 5.42],
+      // colores de nuestros parametros
+      backgroundColor: ['red', 'blue', 'green', 'yellow'],
+     }]
+  }
+
+  // (configuracion) opciones de nuestra grafica
+  const opciones ={
+    // que se adapte en cualquier dispositivo
+    responsive: true
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Doughnut  data={data} options={opciones}  />
+      <br/>
+      <Pie  data={data} options={opciones} />
+      
     </div>
+    
+
   );
 }
 
