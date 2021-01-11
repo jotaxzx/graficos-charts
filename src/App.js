@@ -1,5 +1,7 @@
 import './App.css';
 import {Doughnut, Pie } from 'react-chartjs-2';
+import 'antd/dist/antd.css';
+import { Row, Col, Divider} from 'antd';
 
 function App() {
 
@@ -16,17 +18,25 @@ function App() {
 
   // (configuracion) opciones de nuestra grafica
   const opciones ={
+    manitainAspectRatio: false,
     // que se adapte en cualquier dispositivo
     responsive: true
   }
   return (
-    <div className="App">
-      <Doughnut  data={data} options={opciones}  />
-      <br/>
-      <Pie  data={data} options={opciones} />
+    <>
+      <Divider> Graficos  </Divider>
+      <div className="App" style={{width: '500px', height: '700px'}}>
       
-    </div>
+        <Row gutter={[8, 8]} className="fila">
+          <Col xs={24} sm={12} md={12}><div className="col"><Doughnut  data={data} options={opciones}  /></div></Col>
+          <Col xs={24} sm={12} md={12}><div className="col"><Pie  data={data} options={opciones}   /> </div></Col>
+        </Row>
+            
+      </div>
+
     
+
+    </>
 
   );
 }

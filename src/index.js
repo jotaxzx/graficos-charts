@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Barra from './Barra';
+
+
+import Barr from './Barr';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Barra />
+    <Barr
+     />
   </React.StrictMode>,
   document.getElementById('root')
 );
